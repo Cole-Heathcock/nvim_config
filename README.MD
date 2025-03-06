@@ -1,3 +1,6 @@
+
+#Modified from original, see the project this was forked from.
+
 # barebone-nvim
 barebone-nvim is meant to be the absolute bare minimum (in my opinion) of what
 you need to launch your own config. This configuration is mostly boilerplate
