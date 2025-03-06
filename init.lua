@@ -17,10 +17,10 @@ vim.opt.titlestring = '%t'
 
 -- Indentation and Formatting Settings
 vim.opt.autoindent = true
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
 vim.opt.smarttab = true
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 
 -- Display Settings
 vim.opt.cursorline = true
@@ -76,10 +76,10 @@ remap('v', '<C-j>', '<S-Down>zz')
 -- Save file
 remap('n', '<C-s>', ':w<CR>')
 -- Move selected lines with alt arrows like in subl
-remap('v', '<A-k>', ":m '<-2<CR>gv=gv")
-remap('v', '<A-j>', ":m '>+1<CR>gv=gv")
-remap('n', '<A-k>', ':m .-2<cr>==')
-remap('n', '<A-j>', ':m .+1<cr>==')
+--remap('v', '<A-k>', ":m '<-2<CR>gv=gv")
+--remap('v', '<A-j>', ":m '>+1<CR>gv=gv")
+--remap('n', '<A-k>', ':m .-2<cr>==')
+--remap('n', '<A-j>', ':m .+1<cr>==')
 -- Vertical split
 remap('n', '<leader>+', '<Cmd>vsplit<CR>')
 -- Horizontal split
@@ -132,10 +132,19 @@ vim.opt.rtp:prepend(lazypath)                                -- Ends here, this 
 -- █▀▀ █▄▄ █▄█ █▄█ █ █░▀█ ▄█   ▄█ ░█░ █▀█ █▀▄ ░█░   █▀█ ██▄ █▀▄ ██▄
 --0=========================================================================0
 require("lazy").setup({
+    -- {
+    --     'leet0rz/modified-moonlight.nvim', -- this is the theme
+    --     config = function()
+    --         vim.cmd('colorscheme moonlight') -- this applies the theme
+    --     end
+    -- },
     {
-        'leet0rz/modified-moonlight.nvim', -- this is the theme
+        'navarasu/onedark.nvim',
         config = function()
-            vim.cmd('colorscheme moonlight') -- this applies the theme
+            require('onedark').setup {
+                style = 'deep'
+            }
+            require('onedark').load()
         end
     },
     {
@@ -227,7 +236,7 @@ require("lazy").setup({
             -- ENABLES THIS IF USING WINDOWS:
             -- require('nvim-treesitter.install').compilers = { 'zig' } 
             require('nvim-treesitter.configs').setup {
-                ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query' },
+                ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'go' },
                 -- Install parsers synchronously (only applied to `ensure_installed`)
                 sync_install = false,
                 -- Automatically install missing parsers when entering buffer
